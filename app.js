@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const app = express();
 
 const loginRouter = require("./controllers/loginRouter.js");
+const registrationRouter = require("./controllers/registrationRouter.js");
 
 const url = process.env.MONGODB_URI;
 
@@ -21,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/login", loginRouter);
+app.use("/registration", registrationRouter);
 
 const PORT = 4000;
 

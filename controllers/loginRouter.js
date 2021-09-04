@@ -2,9 +2,9 @@ const loginRouter = require("express").Router();
 const User = require("../models/User");
 
 loginRouter.post("/", async (req, res) => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
-  const foundedUser = await User.findOne({ username });
+  const foundedUser = await User.findOne({ email });
 
   const passwordMatch = password === foundedUser.password;
 
@@ -12,7 +12,7 @@ loginRouter.post("/", async (req, res) => {
     return res.send(foundedUser);
   }
 
-  return res.status(401).json({ message: "Wrong username or password" });
+  return res.status(401).json({ message: "Wrong email or password" });
 });
 
 module.exports = loginRouter;
