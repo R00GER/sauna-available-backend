@@ -7,6 +7,7 @@ const app = express();
 
 const loginRouter = require("./controllers/loginRouter.js");
 const registrationRouter = require("./controllers/registrationRouter.js");
+const bookingRouter = require("./controllers/bookingRouter.js");
 
 const url = process.env.MONGODB_URI;
 
@@ -23,6 +24,7 @@ app.use(express.json());
 
 app.use("/login", loginRouter);
 app.use("/registration", registrationRouter);
+app.use("/book", bookingRouter);
 
 const PORT = 4000;
 
